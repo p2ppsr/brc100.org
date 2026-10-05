@@ -1,0 +1,110 @@
+{
+  "wallets": [
+    {
+      "name": "BSV Browser",
+      "vendor": "BSV Association",
+      "url": "https://github.com/bsv-blockchain/bsv-browser",
+      "description": "A mobile browser with an integrated BRC-100 wallet.",
+      "integration": "BRC-100",
+      "reference": true,
+      "evidence": "https://github.com/bsv-blockchain/bsv-browser"
+    },
+    {
+      "name": "BSV Desktop",
+      "vendor": "BSV Association",
+      "url": "https://github.com/bsv-blockchain/bsv-desktop",
+      "description": "The desktop reference wallet for applications using BRC-100.",
+      "integration": "BRC-100",
+      "reference": true,
+      "evidence": "https://github.com/bsv-blockchain/bsv-desktop"
+    },
+    {
+      "name": "HandCash",
+      "vendor": "HandCash",
+      "url": "https://handcash.io/",
+      "description": "Desktop and mobile beta wallets implementing BRC-100 for app identity, permissions, and payments.",
+      "integration": "BRC-100 \u00b7 beta",
+      "evidence": "https://github.com/HandCash/HANDCASH-DESKTOP",
+      "links": [
+        {
+          "label": "Mobile beta",
+          "url": "https://github.com/HandCash/HANDCASH-MOBILE"
+        }
+      ]
+    },
+    {
+      "name": "Hodos Browser",
+      "vendor": "Hodos",
+      "url": "https://github.com/Hodos-Browser/Hodos-Browser",
+      "description": "A browser with a native BSV wallet and BRC-100 application interface.",
+      "integration": "BRC-100",
+      "evidence": "https://github.com/Hodos-Browser/Hodos-Browser"
+    },
+    {
+      "name": "Metanet",
+      "vendor": "Project Babbage",
+      "url": "https://getmetanet.com/",
+      "description": "Desktop and mobile wallet experiences for identity, payments, and BRC-100 apps.",
+      "integration": "BRC-100",
+      "evidence": "https://desktop-binaries.getmetanet.com/"
+    },
+    {
+      "name": "Peacock",
+      "vendor": "Peer-to-peer Privacy Systems Research",
+      "url": "https://userwallet.getmetanet.com/",
+      "description": "A native desktop wallet for BRC-100 identity, permissions, and payments.",
+      "integration": "BRC-100",
+      "evidence": "https://github.com/p2ppsr/peacock-wallet"
+    },
+    {
+      "name": "Yours Wallet",
+      "vendor": "Yours",
+      "url": "https://yours.org/",
+      "description": "A browser extension with a BRC-100 wallet engine, ordinals, and app connections.",
+      "integration": "BRC-100",
+      "evidence": "https://github.com/yours-org/yours-wallet"
+    }
+  ],
+  "apps": [
+    {
+      "name": "1Sat Market",
+      "vendor": "1Sat / bOpen",
+      "url": "https://1sat.market/",
+      "description": "Explore and trade ordinals and tokens with the 1Sat wallet ecosystem.",
+      "integration": "1Sat wallet",
+      "evidence": "https://github.com/b-open-io/1sat-sdk"
+    },
+    {
+      "name": "BitPlan",
+      "vendor": "opl.dev",
+      "url": "https://bitplan.dev/",
+      "description": "Create, encrypt, and publish agent plans using a BRC-100 wallet.",
+      "integration": "BRC-100",
+      "evidence": "https://bitplan.dev/docs/envelope"
+    },
+    {
+      "name": "BSV Radar",
+      "vendor": "BSV Radar",
+      "url": "https://bsvradar.com/",
+      "description": "Discover BSV apps and developer tools, with BRC-100 wallet sign-in.",
+      "integration": "BRC-100",
+      "evidence": "https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0137.md"
+    },
+    {
+      "name": "MetaNet Apps",
+      "vendor": "Project Babbage",
+      "url": "https://metanetapps.com/",
+      "description": "Discover and publish apps in the Metanet catalog using a BRC-100 wallet.",
+      "integration": "BRC-100",
+      "evidence": "https://metanetapps.com/"
+    },
+    {
+      "name": "SocialCert",
+      "vendor": "BSV Association / Project Babbage",
+      "url": "https://socialcert.net/",
+      "description": "Connect social identity with wallet-held certificates for BRC-100 apps.",
+      "integration": "BRC-100",
+      "evidence": "https://github.com/bsv-blockchain/WhoIAm"
+    }
+  ]
+}

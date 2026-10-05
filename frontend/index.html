@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5ef">
+  <title>BRC-100 — One interface. An open world.</title>
+  <meta name="description" content="Meet BRC-100, the open wallet-to-application interface for BSV. Explore working API examples, understand the architecture, and start building with your choice of wallet.">
+  <link rel="canonical" href="https://brc100.org/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://brc100.org/">
+  <meta property="og:title" content="BRC-100 — One interface. An open world.">
+  <meta property="og:description" content="The open standard connecting applications and BSV wallets. Explore the interface. Start building.">
+  <meta property="og:image" content="https://brc100.org/assets/social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BRC-100 — One interface. An open world.">
+  <meta name="twitter:description" content="The open standard connecting applications and BSV wallets.">
+  <meta name="twitter:image" content="https://brc100.org/assets/social.png">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/examples.js" defer></script>
+  <script src="/app.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"BRC100.org","url":"https://brc100.org/","description":"A developer guide to the BRC-100 wallet-to-application interface."}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16"/></symbol>
+    <symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="8" r="5"/><path d="m12 12 9 9m-5-5 3-3m-6 0 3-3"/></symbol>
+    <symbol id="wallet" viewBox="0 0 24 24"><path d="M20 8V5H5a2 2 0 0 0 0 4h16v11H5a2 2 0 0 1-2-2V7m18 6h-6v4h6"/><path d="M17 15h.01"/></symbol>
+    <symbol id="certificate" viewBox="0 0 24 24"><path d="M19 14V3H5v18h6M8 7h8M8 11h5"/><circle cx="17" cy="16" r="3"/><path d="m15 18-1 4 3-1 3 1-1-4"/></symbol>
+    <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></symbol>
+    <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+  </svg>
+
+  <header class="header">
+    <div class="shell header-inner">
+      <a class="brand" href="/" aria-label="BRC100.org home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>brc100<span class="brand-domain">.org</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false" aria-label="Open navigation"><span></span><span></span></button>
+      <nav id="navigation" class="navigation" aria-label="Main navigation">
+        <a href="#overview">The standard</a>
+        <a href="#explorer">API explorer</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="#resources">Resources</a>
+        <a class="nav-cta" href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0100.md" target="_blank" rel="noopener noreferrer">Read BRC-100 <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> THE WALLET ↔ APP STANDARD</p>
+        <h1 id="hero-title">One interface.<br><span>An open world.</span></h1>
+        <p class="hero-description">A common language for applications and BSV wallets. Build with payments, identity, and cryptography—while keeping wallet choice in the user’s hands.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#start">Start building <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="text-link" href="#explorer">Explore the interface <svg class="icon" aria-hidden="true"><use href="#external"/></svg></a>
+        </div>
+        <div class="hero-principles"><span>Open specification</span><span>Vendor-neutral</span><span>Permission-aware</span></div>
+      </div>
+
+      <div class="interface-visual" aria-label="An illustration of an application communicating with different wallets through BRC-100">
+        <div class="visual-heading"><span class="mono">A COMMON LANGUAGE</span><span class="visual-index">01 / 03</span></div>
+        <div class="app-node">
+          <div class="node-label"><svg class="icon" aria-hidden="true"><use href="#code"/></svg> YOUR APPLICATION <span class="tiny-dots" aria-hidden="true">•••</span></div>
+          <code id="diagram-call">wallet.getPublicKey({ identityKey: true })</code>
+        </div>
+        <div class="connector connector-top" aria-hidden="true"><span></span><i></i></div>
+        <div class="interface-node"><span class="interface-symbol" aria-hidden="true">↔</span><div><strong>BRC-100</strong><span>One standard interface</span></div><span class="interface-node-tag mono">OPEN</span></div>
+        <div class="wallet-connections" aria-hidden="true">
+          <svg viewBox="0 0 400 65" preserveAspectRatio="none"><path d="M200 0v26M55 65V26h290v39M200 26v39"/><circle class="signal-dot" cx="200" cy="13" r="3"/></svg>
+        </div>
+        <div class="wallet-nodes">
+          <div><svg class="icon" aria-hidden="true"><use href="#wallet"/></svg><strong>Desktop</strong><span>wallet</span></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#globe"/></svg><strong>Browser</strong><span>wallet</span></div>
+          <div><svg class="icon" aria-hidden="true"><use href="#layers"/></svg><strong>Your choice</strong><span>of wallet</span></div>
+        </div>
+        <div class="visual-switches" role="group" aria-label="Choose an illustrated API call">
+          <button type="button" data-flow="identity" aria-pressed="true">Identity</button>
+          <button type="button" data-flow="signature" aria-pressed="false">Signatures</button>
+          <button type="button" data-flow="transaction" aria-pressed="false">Transactions</button>
+        </div>
+        <p class="visual-caption">Your app requests. The wallet authorizes.<br><span>Interface illustration · no requests are sent.</span></p>
+      </div>
+    </section>
+
+    <div class="standard-strip">
+      <div class="shell strip-inner"><span class="mono">LESS COUPLING. MORE POSSIBILITY.</span><p>Build for an interface.<br class="mobile-break"> Leave room for choice.</p><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div>
+    </div>
+
+    <section id="overview" class="overview section shell" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div><p class="eyebrow section-label">01 / THE STANDARD</p><h2 id="overview-title">More than a wallet balance.</h2></div>
+        <p>BRC-100 defines how an application asks a wallet to act. The wallet handles the keys, permissions, and implementation.</p>
+      </div>
+      <div class="capabilities">
+        <article class="capability">
+          <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#wallet"/></svg></span><span class="card-number mono">01</span>
+          <h3>Payments & transactions</h3><p>Create actions, accept incoming transactions, and organize outputs into baskets. Build the experience your application needs.</p>
+          <div class="method-chips"><code>createAction</code><code>listOutputs</code></div>
+        </article>
+        <article class="capability">
+          <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#key"/></svg></span><span class="card-number mono">02</span>
+          <h3>Keys & cryptography</h3><p>Request public keys, sign data, and encrypt messages within a protocol context. Private key handling stays with the wallet.</p>
+          <div class="method-chips"><code>getPublicKey</code><code>encrypt</code></div>
+        </article>
+        <article class="capability">
+          <span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#certificate"/></svg></span><span class="card-number mono">03</span>
+          <h3>Identity & certificates</h3><p>Work with identity certificates and selectively reveal fields to a verifier. Ask for the information your application actually needs.</p>
+          <div class="method-chips"><code>acquireCertificate</code><code>proveCertificate</code></div>
+        </article>
+      </div>
+      <div class="architecture-note"><span class="note-symbol" aria-hidden="true">↔</span><p><strong>The interface is the agreement.</strong> Apps target a common API; wallets can have different user experiences, storage, and service choices. Check support and permission behavior in the implementations you target.</p><a href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0100.md" class="text-link" target="_blank" rel="noopener noreferrer">Explore the specification <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div>
+    </section>
+
+    <section id="explorer" class="explorer-section" aria-labelledby="explorer-title">
+      <div class="shell section">
+        <div class="section-heading">
+          <div><p class="eyebrow section-label">02 / EXPLORE THE API</p><h2 id="explorer-title">Small calls.<br>Big building blocks.</h2></div>
+          <p>Get a feel for the interface. Choose an operation, edit the example, and copy the code into your project.</p>
+        </div>
+        <div class="explorer">
+          <div class="example-picker" role="group" aria-label="Choose an API example">
+            <span class="picker-label mono">WALLET OPERATIONS</span>
+            <button type="button" data-example="identity" aria-pressed="true"><span><svg class="icon" aria-hidden="true"><use href="#key"/></svg>Get a public key</span><span class="picker-arrow">↗</span></button>
+            <button type="button" data-example="signature" aria-pressed="false"><span><svg class="icon" aria-hidden="true"><use href="#certificate"/></svg>Sign a message</span><span class="picker-arrow">↗</span></button>
+            <button type="button" data-example="encryption" aria-pressed="false"><span><svg class="icon" aria-hidden="true"><use href="#key"/></svg>Encrypt a message</span><span class="picker-arrow">↗</span></button>
+            <button type="button" data-example="transaction" aria-pressed="false"><span><svg class="icon" aria-hidden="true"><use href="#wallet"/></svg>Create a transaction</span><span class="picker-arrow">↗</span></button>
+            <button type="button" data-example="outputs" aria-pressed="false"><span><svg class="icon" aria-hidden="true"><use href="#layers"/></svg>Explore a basket</span><span class="picker-arrow">↗</span></button>
+            <button type="button" data-example="network" aria-pressed="false"><span><svg class="icon" aria-hidden="true"><use href="#globe"/></svg>Check the network</span><span class="picker-arrow">↗</span></button>
+            <a class="all-methods" href="https://bsv-blockchain.github.io/ts-sdk/reference/wallet/#interface-walletinterface" target="_blank" rel="noopener noreferrer">Full API reference <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+
+          <div class="code-workspace">
+            <div class="code-toolbar">
+              <div class="code-tabs" role="tablist" aria-label="Example format">
+                <button id="tab-typescript" role="tab" type="button" aria-selected="true" aria-controls="code-panel" tabindex="0" data-view="typescript">TypeScript</button>
+                <button id="tab-request" role="tab" type="button" aria-selected="false" aria-controls="code-panel" tabindex="-1" data-view="request">Request</button>
+                <button id="tab-response" role="tab" type="button" aria-selected="false" aria-controls="code-panel" tabindex="-1" data-view="response">Response shape</button>
+              </div>
+              <button class="copy-button" id="copy-code" type="button" aria-label="Copy example code"><svg class="icon" aria-hidden="true"><use href="#copy"/></svg><span>Copy</span></button>
+            </div>
+            <div id="code-panel" role="tabpanel" aria-labelledby="tab-typescript" tabindex="0">
+              <div class="code-filename mono" id="code-filename">app.ts</div>
+              <pre><code id="example-code">import { WalletClient } from "@bsv/sdk";
+
+const wallet = new WalletClient();
+
+const { publicKey } = await wallet.getPublicKey({
+  identityKey: true
+});</code></pre>
+            </div>
+            <div class="example-controls" id="example-controls" hidden><label for="example-message">Your example message</label><input id="example-message" type="text" value="Hello, BRC-100." maxlength="64" autocomplete="off" spellcheck="false"></div>
+            <div class="example-footer"><p id="example-description">Request the wallet’s public identity key. A wallet may ask the user for permission.</p><span class="example-state mono">LOCAL EXAMPLE</span></div>
+          </div>
+        </div>
+        <div class="explorer-footnote"><p><span class="status-dot" aria-hidden="true"></span> Examples only. No wallet connection, transaction, or payment is made here.</p><span id="copy-status" role="status" aria-live="polite"></span></div>
+        <noscript><p class="noscript-note">Enable JavaScript to switch examples. The starter example and all documentation links remain available.</p></noscript>
+      </div>
+    </section>
+
+    <section id="start" class="getting-started section shell" aria-labelledby="start-title">
+      <div class="start-copy"><p class="eyebrow section-label">03 / YOUR FIRST INTEGRATION</p><h2 id="start-title">Start with a few lines.<br>Build something useful.</h2><p>Use the TypeScript SDK’s <code>WalletClient</code> to speak BRC-100. Pair your app with a compatible wallet, handle permissions and errors, then build outward.</p><a class="button button-primary" href="https://bsv-blockchain.github.io/ts-sdk/" target="_blank" rel="noopener noreferrer">Open the SDK docs <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div>
+      <div class="start-steps">
+        <div class="start-step"><span class="step-number mono">01</span><div><h3>Install the SDK</h3><div class="install-command"><code>npm install @bsv/sdk</code><button id="copy-install" type="button" aria-label="Copy npm install command"><svg class="icon" aria-hidden="true"><use href="#copy"/></svg></button></div></div></div>
+        <div class="start-step"><span class="step-number mono">02</span><div><h3>Connect through the interface</h3><p>Create a <code>WalletClient</code>, then use the methods your app needs. Test the transport with your chosen wallet.</p></div></div>
+        <div class="start-step"><span class="step-number mono">03</span><div><h3>Keep the user in the loop</h3><p>Make requests deliberate. Explain what your app needs, handle declined permissions, and confirm the network before transacting.</p></div></div>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="ecosystem section shell" aria-labelledby="ecosystem-title">
+      <div class="section-heading"><div><p class="eyebrow section-label">04 / THE ECOSYSTEM</p><h2 id="ecosystem-title">A wallet of your choice.<br>Apps worth exploring.</h2></div><p>Meet wallets and apps from across the BSV ecosystem. Integration labels help you find the right starting point for your project.</p></div>
+      <!-- directory:start -->
+      <div class="directory-group" id="wallets"><div class="directory-heading"><h3>Wallets</h3><p>Reference implementations first. Other wallets A–Z.</p></div><div class="directory-grid" data-directory="wallets">
+        <article class="directory-card directory-reference"><div class="directory-title"><h4><a href="https://github.com/bsv-blockchain/bsv-browser" target="_blank" rel="noopener noreferrer">BSV Browser <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">REFERENCE</span></div><p class="directory-vendor">BSV Association</p><p>A mobile browser with an integrated BRC-100 wallet.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/bsv-blockchain/bsv-browser" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card directory-reference"><div class="directory-title"><h4><a href="https://github.com/bsv-blockchain/bsv-desktop" target="_blank" rel="noopener noreferrer">BSV Desktop <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">REFERENCE</span></div><p class="directory-vendor">BSV Association</p><p>The desktop reference wallet for applications using BRC-100.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/bsv-blockchain/bsv-desktop" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://handcash.io/" target="_blank" rel="noopener noreferrer">HandCash <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100 · beta</span></div><p class="directory-vendor">HandCash</p><p>Desktop and mobile beta wallets implementing BRC-100 for app identity, permissions, and payments.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/HandCash/HANDCASH-DESKTOP" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a> <a class="directory-evidence" href="https://github.com/HandCash/HANDCASH-MOBILE" target="_blank" rel="noopener noreferrer">Mobile beta <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://github.com/Hodos-Browser/Hodos-Browser" target="_blank" rel="noopener noreferrer">Hodos Browser <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">Hodos</p><p>A browser with a native BSV wallet and BRC-100 application interface.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/Hodos-Browser/Hodos-Browser" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://getmetanet.com/" target="_blank" rel="noopener noreferrer">Metanet <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">Project Babbage</p><p>Desktop and mobile wallet experiences for identity, payments, and BRC-100 apps.</p><div class="directory-links"><a class="directory-evidence" href="https://desktop-binaries.getmetanet.com/" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://userwallet.getmetanet.com/" target="_blank" rel="noopener noreferrer">Peacock <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">Peer-to-peer Privacy Systems Research</p><p>A native desktop wallet for BRC-100 identity, permissions, and payments.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/p2ppsr/peacock-wallet" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://yours.org/" target="_blank" rel="noopener noreferrer">Yours Wallet <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">Yours</p><p>A browser extension with a BRC-100 wallet engine, ordinals, and app connections.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/yours-org/yours-wallet" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+      </div></div>
+      <div class="directory-group" id="apps"><div class="directory-heading"><h3>Apps to explore</h3><p>A–Z. Follow each app’s guide to connect a wallet.</p></div><div class="directory-grid" data-directory="apps">
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://1sat.market/" target="_blank" rel="noopener noreferrer">1Sat Market <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">1Sat wallet</span></div><p class="directory-vendor">1Sat / bOpen</p><p>Explore and trade ordinals and tokens with the 1Sat wallet ecosystem.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/b-open-io/1sat-sdk" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://bitplan.dev/" target="_blank" rel="noopener noreferrer">BitPlan <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">opl.dev</p><p>Create, encrypt, and publish agent plans using a BRC-100 wallet.</p><div class="directory-links"><a class="directory-evidence" href="https://bitplan.dev/docs/envelope" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://bsvradar.com/" target="_blank" rel="noopener noreferrer">BSV Radar <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">BSV Radar</p><p>Discover BSV apps and developer tools, with BRC-100 wallet sign-in.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0137.md" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://metanetapps.com/" target="_blank" rel="noopener noreferrer">MetaNet Apps <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">Project Babbage</p><p>Discover and publish apps in the Metanet catalog using a BRC-100 wallet.</p><div class="directory-links"><a class="directory-evidence" href="https://metanetapps.com/" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+        <article class="directory-card"><div class="directory-title"><h4><a href="https://socialcert.net/" target="_blank" rel="noopener noreferrer">SocialCert <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></h4><span class="directory-tag mono">BRC-100</span></div><p class="directory-vendor">BSV Association / Project Babbage</p><p>Connect social identity with wallet-held certificates for BRC-100 apps.</p><div class="directory-links"><a class="directory-evidence" href="https://github.com/bsv-blockchain/WhoIAm" target="_blank" rel="noopener noreferrer">Integration details <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div></article>
+      </div></div>
+      <!-- directory:end -->
+      <div class="directory-contribute"><div><h3>Help the directory grow.</h3><p>Know an app or wallet that belongs here? Add its name, official link, and integration details in a pull request.</p></div><a class="button button-primary" href="https://github.com/p2ppsr/brc100.org/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Add an app or wallet <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div>
+    </section>
+
+    <section id="resources" class="resources section shell" aria-labelledby="resources-title">
+      <div class="section-heading"><div><p class="eyebrow section-label">05 / GO DEEPER</p><h2 id="resources-title">From the standard<br>to your first app.</h2></div><p>Go straight to the sources: the specification, reference code, wallet implementations, and developer tools.</p></div>
+      <div class="resources-grid">
+        <a class="resource-card resource-featured" href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0100.md" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">THE SPECIFICATION</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>Read BRC-100.</h3><p>The interface, data types, methods, and underlying standards. Start at the source.</p></div><span class="resource-bottom mono">bsv-blockchain / BRCs<span class="sr-only"> (opens in a new tab)</span></span></a>
+        <a class="resource-card" href="https://bsv-blockchain.github.io/ts-sdk/" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">APPLICATION DEVELOPERS</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>TypeScript SDK</h3><p>WalletClient and the API documentation for building your integration.</p></div><span class="resource-bottom mono">@bsv/sdk<span class="sr-only"> (opens in a new tab)</span></span></a>
+        <a class="resource-card" href="https://github.com/bsv-blockchain/ts-stack/tree/main/packages/wallet" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">WALLET IMPLEMENTERS</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>Wallet Toolbox</h3><p>Explore the tooling behind wallet implementations and wallet storage.</p></div><span class="resource-bottom mono">bsv-blockchain / ts-stack<span class="sr-only"> (opens in a new tab)</span></span></a>
+        <a class="resource-card" href="https://github.com/bsv-blockchain/bsv-desktop" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">REFERENCE IMPLEMENTATION</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>BSV Desktop</h3><p>Explore the desktop wallet’s source, setup instructions, and releases.</p></div><span class="resource-bottom mono">bsv-blockchain / bsv-desktop<span class="sr-only"> (opens in a new tab)</span></span></a>
+        <a class="resource-card" href="https://github.com/bsv-blockchain/bsv-browser" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">REFERENCE IMPLEMENTATION</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>BSV Browser</h3><p>See how a browser wallet brings the interface into web applications.</p></div><span class="resource-bottom mono">bsv-blockchain / bsv-browser<span class="sr-only"> (opens in a new tab)</span></span></a>
+        <a class="resource-card" href="https://github.com/bsv-blockchain/BRCs" target="_blank" rel="noopener noreferrer"><div class="resource-top"><span class="mono">THE BIGGER PICTURE</span><svg class="icon" aria-hidden="true"><use href="#external"/></svg></div><div><h3>Explore the BRCs</h3><p>Follow the standards for keys, payments, certificates, and the wider ecosystem.</p></div><span class="resource-bottom mono">Open standards. Open discussion.<span class="sr-only"> (opens in a new tab)</span></span></a>
+      </div>
+    </section>
+
+    <section class="faq-section section shell" aria-labelledby="faq-title">
+      <div class="faq-heading"><p class="eyebrow section-label">A FEW GOOD QUESTIONS</p><h2 id="faq-title">Before you build.</h2></div>
+      <div class="faq-list">
+        <details><summary>Is BRC-100 a wallet, a token, or a company?<span aria-hidden="true">+</span></summary><p>It’s an open wallet-to-application interface specification for BSV. Wallets implement it; applications use it. BRC-100 itself is not a wallet product or a token.</p></details>
+        <details><summary>Do I need a wallet to use this explorer?<span aria-hidden="true">+</span></summary><p>No. This explorer displays code and request shapes locally. To run that code in an application, use the SDK with a compatible wallet. The wallet may request user authorization.</p></details>
+        <details><summary>Does one interface make every wallet identical?<span aria-hidden="true">+</span></summary><p>The API gives applications a common contract. Wallet UX, supported transports, permission policies, storage, backup, and recovery can differ. Test against your target implementations rather than assuming identical behavior.</p></details>
+        <details><summary>Where can I ask questions or contribute?<span aria-hidden="true">+</span></summary><p>Start with the <a href="https://github.com/bsv-blockchain/BRCs" target="_blank" rel="noopener noreferrer">BRCs repository<span class="sr-only"> (opens in a new tab)</span></a> for specification discussions. For an implementation issue, use that project’s repository and include a minimal reproducible example.</p></details>
+      </div>
+    </section>
+
+    <section class="closing-band">
+      <div class="shell closing-inner"><div><p class="eyebrow">OPEN INTERFACES MAKE ROOM FOR IDEAS.</p><h2>What will you build?</h2></div><a class="button button-light" href="#start">Start with BRC-100 <svg class="icon" aria-hidden="true"><use href="#arrow"/></svg></a><span class="closing-watermark" aria-hidden="true">↔</span></div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <a class="brand" href="/" aria-label="BRC100.org home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>brc100<span class="brand-domain">.org</span></span></a>
+    <p>A developer home for BRC-100. <a href="https://github.com/p2ppsr/brc100.org" target="_blank" rel="noopener noreferrer">Source available<span class="sr-only"> (opens in a new tab)</span></a> · <a href="https://github.com/p2ppsr/brc100.org/blob/master/LICENSE.txt" target="_blank" rel="noopener noreferrer">Open BSV License<span class="sr-only"> (opens in a new tab)</span></a></p>
+    <a href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0100.md" target="_blank" rel="noopener noreferrer">Read the standard <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
+  </footer>
+</body>
+</html>

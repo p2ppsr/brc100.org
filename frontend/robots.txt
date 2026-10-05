@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brc100.org/sitemap.xml

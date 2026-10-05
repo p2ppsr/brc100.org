@@ -1,0 +1,23 @@
+{
+  "schema": "bsv-app",
+  "schemaVersion": "1.0",
+  "topicManagers": {},
+  "lookupServices": {},
+  "frontend": {
+    "language": "html",
+    "sourceDirectory": "./frontend"
+  },
+  "configs": [
+    {
+      "name": "Babbage",
+      "provider": "CARS",
+      "CARSCloudURL": "https://cars.babbage.systems",
+      "projectID": "0481b2b6f9b2d96210fc1a0cab5086b0",
+      "network": "mainnet",
+      "deploy": [
+        "frontend"
+      ],
+      "frontendHostingMethod": "HTTPS"
+    }
+  ]
+}

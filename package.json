@@ -1,0 +1,30 @@
+{
+  "name": "brc100-org",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The BRC-100 developer home: an open interface between apps and wallets",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "check": "node scripts/directory.mjs --check && node scripts/check-site.mjs",
+    "test": "playwright test",
+    "dev": "node scripts/serve.mjs",
+    "social": "node scripts/generate-social.mjs",
+    "build": "npm run check && cars build Babbage",
+    "directory": "node scripts/directory.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@bsv/sdk": "3.0.0",
+    "@fontsource-variable/manrope": "5.2.8",
+    "@p2ppsr/cars-cli": "1.2.34",
+    "@playwright/test": "1.63.0",
+    "typescript": "5.9.3"
+  },
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p2ppsr/brc100.org.git"
+  }
+}

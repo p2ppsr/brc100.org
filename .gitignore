@@ -1,0 +1,7 @@
+node_modules/
+frontend/build/
+cars_artifact_*.tgz
+.env*
+.checks/
+test-results/
+playwright-report/

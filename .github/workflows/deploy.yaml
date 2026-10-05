@@ -1,0 +1,42 @@
+name: Deploy BRC100.org
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: brc100-production
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      CARS_PRIVATE_KEY: ${{ secrets.CARS_PRIVATE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-fund
+      - name: Check website and browser behavior
+        run: |
+          npm run check
+          npx --no-install playwright install --with-deps chromium
+          npm test
+      - name: Verify deployment access and existing balance
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CARS_PRIVATE_KEY"
+          npx --no-install cars doctor Babbage --key "$CARS_PRIVATE_KEY" --network mainnet
+          npx --no-install cars project ensure-balance Babbage --key "$CARS_PRIVATE_KEY" --network mainnet --min 1
+      - name: Build and release frontend
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run build
+          npx --no-install cars release now Babbage --key "$CARS_PRIVATE_KEY" --network mainnet 2>&1 | tee /tmp/cars-release.log
+          grep -q 'CARS_RELEASE_SUCCESS' /tmp/cars-release.log

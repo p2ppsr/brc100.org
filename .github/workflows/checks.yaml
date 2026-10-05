@@ -1,0 +1,19 @@
+name: Check contributions
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  website:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-fund
+      - run: npm run check
+      - run: npx --no-install playwright install --with-deps chromium
+      - run: npm test
