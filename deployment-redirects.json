@@ -1,0 +1,14 @@
+{
+  "hostname": "docs.brc100.org",
+  "statusCode": 301,
+  "rules": [
+    {
+      "pathPrefix": "/brc-100-ecosystem",
+      "destination": "https://brc100.org/#ecosystem"
+    },
+    {
+      "pathPrefix": "/",
+      "destination": "https://brc100.org/"
+    }
+  ]
+}

@@ -35,6 +35,13 @@ Edit `frontend/` for site changes. `frontend/examples.js` is the single catalog 
 
 ## Publish and rollback
 
+Legacy documentation redirects are defined in `deployment-redirects.json` and
+installed at the HTTPS gateway. `docs.brc100.org/brc-100-ecosystem` (including
+trailing slashes and child paths) permanently redirects to
+`https://brc100.org/#ecosystem`; other documentation paths redirect to the home
+page. Both HTTP and HTTPS use status 301. The subdomain requires its DNS record
+and a valid TLS certificate in addition to these rules.
+
 Production is `master`. A push or manual workflow dispatch runs `.github/workflows/deploy.yaml`: install the lockfile, validate the site and browser behavior, check the existing deploy identity and balance, build the static HTML artifact, and issue one CARS release. Require the terminal success marker and validate the live site. Concurrency queues releases and never cancels an active deployment. CI does not automatically top up the project.
 
 Project ID: `0481b2b6f9b2d96210fc1a0cab5086b0` on `https://cars.babbage.systems` (mainnet). Release credentials exist only in the repository's `CARS_PRIVATE_KEY` GitHub secret and the private network-ops secrets store. DNS, certificates, availability evidence, and operational procedures are owned by `network-ops`; never add hosting metadata for other providers.
