@@ -50,7 +50,7 @@
       <nav id="navigation" class="navigation" aria-label="Main navigation">
         <a href="#overview">The standard</a>
         <a href="#explorer">API explorer</a>
-        <a href="#ecosystem">Ecosystem</a>
+        <a href="#testing">Testing</a><a href="#ecosystem">Ecosystem</a>
         <a href="#resources">Resources</a>
         <a class="nav-cta" href="https://github.com/bsv-blockchain/BRCs/blob/master/wallet/0100.md" target="_blank" rel="noopener noreferrer">Read BRC-100 <svg class="icon" aria-hidden="true"><use href="#external"/></svg><span class="sr-only"> (opens in a new tab)</span></a>
       </nav>
@@ -179,6 +179,16 @@ const { publicKey } = await wallet.getPublicKey({
       </div>
     </section>
 
+    <section id="testing" class="section shell" aria-labelledby="testing-title">
+      <div class="section-heading"><div><p class="eyebrow section-label">TEST THE INTEGRATION</p><h2 id="testing-title">A common interface.<br>Evidence from real handoffs.</h2></div><p>TPNIL, the Transaction Processing Network Interoperability Laboratory, connects exact software versions to shared requirements, controlled environments and retained experimental outcomes.</p></div>
+      <div class="directory-grid">
+        <article class="directory-card"><h3>Connect a System Under Test</h3><p>ITCVE-1 defines the component roles and environment. An ISI defines the evaluation. Your wallet, application, storage service or overlay enters as an exact artifact in a declared role, with supporting dependencies pinned.</p><a href="https://metanet.fyi/interoperability/integrate" target="_blank" rel="noopener noreferrer">Plan an integration ↗<span class="sr-only"> (opens in a new tab)</span></a></article>
+        <article class="directory-card"><h3>Start with the app workflow</h3><p>ISI-4 exercises initialization, encrypted ToDo creation, cold reload and redemption through supported wallet interfaces. Other programs target the complete transaction stack, overlay synchronization and remote wallet storage.</p><a href="https://github.com/p2ppsr/interop/blob/main/programs/README.md" target="_blank" rel="noopener noreferrer">Explore all four programs ↗<span class="sr-only"> (opens in a new tab)</span></a></article>
+        <article class="directory-card"><h3>Read the whole result</h3><p>Yours Wallet 5.1.0 has two retained experimental runs: V001–V004 pass, V005–V006 fail and V007–V008 are blocked. Mainnet wallet configuration with controlled fixtures does not establish public-mainnet acceptance. Certification remains future work.</p><a href="https://bsv.place/guides/interoperability-testing-and-evidence/" target="_blank" rel="noopener noreferrer">Use the evidence checklist ↗<span class="sr-only"> (opens in a new tab)</span></a></article>
+      </div>
+      <p class="directory-note">Reviewed November 2, 2026. Laboratory result descriptions are source-reported; this page is not an independent test or endorsement of every listed wallet. P2PPSR operates TPNIL and maintains this site. <a href="https://github.com/p2ppsr/interop/blob/main/docs/implementation-status.md" target="_blank" rel="noopener noreferrer">Current implementation status<span class="sr-only"> (opens in a new tab)</span></a> · <a href="https://metanet.fyi/interoperability/examples" target="_blank" rel="noopener noreferrer">Try the offline self-test<span class="sr-only"> (opens in a new tab)</span></a> · <a href="https://github.com/p2ppsr/interop/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contribute a fixture, adapter or independent rerun<span class="sr-only"> (opens in a new tab)</span></a></p>
+    </section>
+
     <section id="ecosystem" class="ecosystem section shell" aria-labelledby="ecosystem-title">
       <div class="section-heading"><div><p class="eyebrow section-label">04 / THE ECOSYSTEM</p><h2 id="ecosystem-title">A wallet of your choice.<br>Apps worth exploring.</h2></div><p>Meet wallets and apps from across the BSV ecosystem. Integration labels help you find the right starting point for your project.</p></div>
       <!-- directory:start -->
@@ -217,6 +227,7 @@ const { publicKey } = await wallet.getPublicKey({
     <section class="faq-section section shell" aria-labelledby="faq-title">
       <div class="faq-heading"><p class="eyebrow section-label">A FEW GOOD QUESTIONS</p><h2 id="faq-title">Before you build.</h2></div>
       <div class="faq-list">
+        <details><summary>Where can I evaluate wallet interoperability?<span aria-hidden="true">+</span></summary><p>The <a href="#testing">TPNIL testing section</a> links to versioned programs, exact artifacts and experimental results. A passing application sequence applies to its declared scope; it does not certify every BRC-100 method, wallet, platform or recovery path.</p></details>
         <details><summary>Is BRC-100 a wallet, a token, or a company?<span aria-hidden="true">+</span></summary><p>It’s an open wallet-to-application interface specification for BSV. Wallets implement it; applications use it. BRC-100 itself is not a wallet product or a token.</p></details>
         <details><summary>Do I need a wallet to use this explorer?<span aria-hidden="true">+</span></summary><p>No. This explorer displays code and request shapes locally. To run that code in an application, use the SDK with a compatible wallet. The wallet may request user authorization.</p></details>
         <details><summary>Does one interface make every wallet identical?<span aria-hidden="true">+</span></summary><p>The API gives applications a common contract. Wallet UX, supported transports, permission policies, storage, backup, and recovery can differ. Test against your target implementations rather than assuming identical behavior.</p></details>
