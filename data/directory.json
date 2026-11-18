@@ -63,6 +63,20 @@
       "description": "A browser extension with a BRC-100 wallet engine, ordinals, and app connections.",
       "integration": "BRC-100",
       "evidence": "https://github.com/yours-org/yours-wallet"
+    },
+    {
+      "name": "bWalletX",
+      "vendor": "The Bitcoin Corporation",
+      "url": "https://bwalletx.com/get",
+      "description": "A wallet for Android, Chrome and the web with a BRC-100 interface for app sign-in, permissions and payments.",
+      "integration": "BRC-100 \u00b7 beta",
+      "evidence": "https://github.com/bitcoin-corp/bwallet",
+      "links": [
+        {
+          "label": "Developer docs",
+          "url": "https://docs.bwalletx.com/developers/connect/"
+        }
+      ]
     }
   ],
   "apps": [
